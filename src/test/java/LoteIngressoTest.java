@@ -1,4 +1,9 @@
 import org.junit.jupiter.api.Test;
+
+import SistemaIngressos.Ingresso;
+import SistemaIngressos.LoteIngresso;
+import SistemaIngressos.TipoIngresso;
+
 import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,3 +1,5 @@
+package SistemaIngressos;
+
 public enum TipoIngresso {
     NORMAL,
     VIP,

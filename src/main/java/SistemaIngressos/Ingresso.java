@@ -1,3 +1,4 @@
+package SistemaIngressos;
 public class Ingresso {
     private final int id;
     private final TipoIngresso tipo;

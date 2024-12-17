@@ -1,5 +1,6 @@
-import java.util.List;
+package SistemaIngressos;
 
+import java.util.List;
 public class LoteIngresso {
     private final int id;
     private final List<Ingresso> ingressos;

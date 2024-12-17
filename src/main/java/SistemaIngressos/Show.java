@@ -1,3 +1,4 @@
+package SistemaIngressos;
 import java.util.List;
 
 public class Show {
