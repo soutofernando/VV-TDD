@@ -153,3 +153,68 @@ A classe Pagamento expõe getters para todos os atributos sem necessidade.
 Sugestão:
 Apenas exponha métodos realmente necessários e mantenha a classe mais encapsulada.
 
+--------------------------------------------------------
+###Sugestoes nos testes de ingressos###
+
+- Testar a marcação de ingresso como disponível novamente
+ ---Casos de Teste para Classe Ingresso---
+
+Cenário: Um ingresso vendido deve poder ser marcado como "disponível" novamente
+Teste: Alterar o status do ingresso de "vendido" para "disponível" e validar o resultado
+Validacão do preço para diferentes tipos de ingresso
+
+
+- Verificar os cálculos de preço para todos os tipos de ingresso:
+VIP custa o dobro do NORMAL
+MEIA_ENTRADA custa metade do NORMAL
+Testes:
+Criar ingressos de cada tipo e validar os preços
+Validação do preço com valores extremos
+
+Cenário: Testar ingressos com preços muito altos, muito baixos ou negativos para validar a lógica de cálculo
+Teste: Garantir que não seja permitido criar um ingresso com preço negativo
+
+- Validação de descontos aplicados
+ --- Casos de Teste para Classe LoteIngresso ---
+
+Cenários:
+O desconto deve ser ignorado para ingressos MEIA_ENTRADA
+O desconto máximo permitido é de 25%
+Teste:
+Criar lotes com descontos diferentes (válidos e inválidos) e validar a receita calculada
+Cálculo de receita com ingressos não vendidos
+
+Cenário: Somente ingressos vendidos devem ser considerados no cálculo da receita
+Teste:
+Adicionar ingressos vendidos e não vendidos ao lote e garantir que apenas os vendidos sejam somados
+Cálculo de receita com lotes vazios
+
+Cenário: Um lote sem ingressos vendidos deve ter receita igual a zero
+Teste:
+Criar um lote vazio e validar a receita
+Validação de descontos extremos
+
+Cenário: Um lote com desconto maior que 25% deve lançar uma exceção ou ignorar o desconto
+Teste:
+Garantir que descontos inválidos não sejam aplicados
+
+
+- Geração de relatório com todos os tipos de ingresso
+ ---Casos de Teste para Relatório do Show---
+
+Cenário: Testar um show que tenha ingressos dos três tipos (VIP, MEIA_ENTRADA, NORMAL)
+Teste:
+Validar o número de ingressos vendidos de cada tipo
+Cálculo correto da receita líquida
+
+Cenários:
+Show em data especial (custos adicionais de 15%)
+Show em data normal.
+Teste:
+Validar o cálculo da receita líquida e os custos
+Determinação do status financeiro do show
+
+Cenários:
+Receita líquida positiva (LUCRO)
+Receita líquida zero (ESTÁVEL)
+Receita líquida negativa (PREJUÍZO)
