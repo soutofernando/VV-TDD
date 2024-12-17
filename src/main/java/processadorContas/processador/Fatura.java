@@ -12,11 +12,21 @@ public class Fatura {
     private List<Pagamento> pagamentos;
 
     public Fatura(LocalDate data, double valorTotal, String nomeCliente) {
+        if (data == null) {
+            throw new IllegalArgumentException("Data não pode ser nula.");
+        }
+        if (valorTotal < 0) {
+            throw new IllegalArgumentException("Valor total não pode ser negativo.");
+        }
+        if (nomeCliente == null || nomeCliente.isEmpty()) {
+            throw new IllegalArgumentException("Nome do cliente não pode ser nulo ou vazio.");
+        }
+
         this.data = data;
         this.valorTotal = valorTotal;
         this.nomeCliente = nomeCliente;
-        this.status = "PENDENTE";
         this.pagamentos = new ArrayList<>();
+        this.status = "PENDENTE"; // Inicialmente, o status da fatura é PENDENTE.
     }
 
     public void adicionarPagamento(Pagamento pagamento) {

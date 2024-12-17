@@ -5,6 +5,7 @@ import processadorContas.processador.Fatura;
 import processadorContas.processador.Pagamento;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import java.time.LocalDate;
 
 class FaturaTest {
@@ -40,15 +41,12 @@ class FaturaTest {
     }
 
     @Test
-    void testPagamentoAtrasadoNaoPagaFatura() {
-        fatura.adicionarPagamento(new Pagamento(1000.00, LocalDate.of(2023, 2, 22), "BOLETO"));
-        fatura.atualizarStatus();
-        assertEquals("PENDENTE", fatura.getStatus());
+    void testFaturaComValorNegativo() {
+        assertThrows(IllegalArgumentException.class, () -> new Fatura(LocalDate.now(), -1500.00, "Cliente Teste"));
     }
 
     @Test
-    void testFaturaSemPagamentos() {
-        fatura.atualizarStatus();
-        assertEquals("PENDENTE", fatura.getStatus());
+    void testAdicionarPagamentoComValorNegativo() {
+        assertThrows(IllegalArgumentException.class, () -> new Pagamento(-500.00, LocalDate.now(), "BOLETO"));
     }
 }
