@@ -1,4 +1,9 @@
 import org.junit.jupiter.api.Test;
+
+import SistemaIngressos.Ingresso;
+import SistemaIngressos.StatusIngresso;
+import SistemaIngressos.TipoIngresso;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class IngressoTest {
