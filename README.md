@@ -8,7 +8,6 @@ Alunos:
 
 Melhorias processador de contas
 
-Críticas e Sugestões de Melhoria
 1. Falta de Validação nos Construtores
 Problema:
 Os construtores das classes Conta, Fatura e Pagamento não realizam validações nos parâmetros recebidos, o que pode permitir a criação de objetos inválidos.
