@@ -9,7 +9,7 @@ Alunos:
 Melhorias processador de contas
 
 1. Falta de Validação nos Construtores
-Problema:
+- Problema:
 Os construtores das classes Conta, Fatura e Pagamento não realizam validações nos parâmetros recebidos, o que pode permitir a criação de objetos inválidos.
 
 Sugestão:
@@ -32,7 +32,7 @@ public Conta(String codigo, LocalDate data, double valorPago, String tipoPagamen
 ```
 
 2. Testes Incompletos
-Problema:
+- Problema:
 Alguns casos de teste não verificam situações-limite ou valores inválidos. Por exemplo:
 
 Pagamentos com valores negativos são aceitos nos testes.
@@ -63,7 +63,7 @@ void testAdicionarPagamentoComValorNegativo() {
 ```
 
 3. Classe ProcessadorDeContas Monolítica
-Problema:
+- Problema:
 A lógica dentro de ProcessadorDeContas está centralizada em um único método (processarContas), o que torna o código menos modular e mais difícil de testar individualmente.
 
 Sugestão:
@@ -99,7 +99,7 @@ private static double calcularValorCorrigido(Conta conta, LocalDate dataFatura) 
 ```
 
 4. Ausência de Testes de Cobertura de Casos Específicos
-Problema:
+- Problema:
 Os testes em ProcessadorDeContasTest não verificam situações como:
 
 Nenhuma conta fornecida.
@@ -130,7 +130,7 @@ void testFaturaComValorNegativo() {
 ```
 
 5. Testes com Nomes mais Descritivos
-Problema:
+- Problema:
 Os nomes dos testes são genéricos e não expressam completamente a intenção do caso de teste.
 
 Sugestão:
@@ -140,14 +140,14 @@ Exemplos:
 testProcessarContasPagamentoBoletoEmDia → testProcessarContas_DeveMarcarFaturaComoPaga_QuandoBoletosSaoValidos
 testPagamentoComValorNegativo → testPagamento_DeveLancarExcecao_QuandoValorNegativo
 6. Cobertura de Código
-Problema:
+- Problema:
 É necessário garantir uma cobertura de código próxima a 100%, incluindo todos os fluxos condicionais.
 
 Sugestão:
 Use ferramentas como JaCoCo para medir a cobertura de testes e identificar trechos não testados.
 
 7. Classe Pagamento com Melhor Encapsulamento
-Problema:
+- Problema:
 A classe Pagamento expõe getters para todos os atributos sem necessidade.
 
 Sugestão:
