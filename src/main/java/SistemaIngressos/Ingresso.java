@@ -5,6 +5,9 @@ public class Ingresso {
     private final double preco;
 
     public Ingresso(int id, TipoIngresso tipo, double preco) {
+        if (preco < 0) {
+            throw new IllegalArgumentException("O preço do ingresso não pode ser negativo");
+        }
         this.id = id;
         this.tipo = tipo;
         this.preco = preco;
@@ -29,6 +32,10 @@ public class Ingresso {
 
     public void marcarComoVendido() {
         this.status = StatusIngresso.VENDIDO;
+    }
+
+    public void marcarComoDisponivel() {
+        this.status = StatusIngresso.DISPONIVEL;
     }
 
     public boolean isVendido() {

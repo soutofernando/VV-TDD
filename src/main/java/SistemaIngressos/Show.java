@@ -18,7 +18,7 @@ public class Show {
     public double calcularCustoTotal() {
         double custo = cacheArtista + despesasInfra;
         if (dataEspecial) {
-            custo += despesasInfra * 0.15; // Adicional de 15%
+            custo += despesasInfra * 0.15; // Adicional de 15% para datas especiais
         }
         return custo;
     }

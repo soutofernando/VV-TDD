@@ -27,13 +27,10 @@ public class LoteIngresso {
     }
 
     public double calcularReceita() {
-        double receita = 0;
-        for (Ingresso ingresso : ingressos) {
-            if (ingresso.isVendido()) {
-                double precoComDesconto = ingresso.getPreco() * (1 - desconto);
-                receita += precoComDesconto;
-            }
-        }
-        return receita;
+        return ingressos.stream()
+                .filter(Ingresso::isVendido)
+                .filter(i -> i.getTipo() != TipoIngresso.MEIA_ENTRADA) // Desconto não se aplica a MEIA_ENTRADA
+                .mapToDouble(i -> i.getPreco() * (1 - desconto))
+                .sum();
     }
 }
